@@ -15,20 +15,21 @@ package com.sudipta.practics.algo.slidingwindow;
 public class SmallestContiguousSubarray {
 
 	public static void main(String[] args) {
-		int input[] = {2, 1, 5, 2, 3, 2};
-		int s =10;
+		int input[] = {2, 1, 3, 2, 2, 5};
+		int s =7;
 		System.out.print(findMinSubArray(input, s));
 	}
 
 	private static int findMinSubArray(int[] input, int s) {
-		int count = 0, start = 0, min =Integer.MAX_VALUE;
+		int count = 0,  min =Integer.MAX_VALUE;
 		for(int i =0; i< input.length; i++) {
-			start =i;
-			int sum = input[i];
-			for(int end=i; end<input.length;end++) {
-				sum = sum + input[end];
-				if(sum == s && end-start < min) {
-					min = end-start+1;
+			int sum = 0;
+			count = 0;
+			for(int j=i; j<input.length;j++) {
+				sum = sum + input[j];
+				count ++;
+				if(sum == s && count < min) {
+					min = count;
 				}
 				
 			}

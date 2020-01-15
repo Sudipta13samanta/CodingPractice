@@ -24,5 +24,4 @@ public class DeleteNode {
 		
 		return null;
 	}
-
 }
